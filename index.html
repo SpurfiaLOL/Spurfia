@@ -1,122 +1,222 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-
-    <title>Spurfia</title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spurfia - Classic UI</title>
     <style>
-
+        /* Classic iOS Pinstripe/Gray Texture Background */
         body {
-
-            background-color: #f0f0f6;
-
-            font-family: -apple-system, sans-serif;
-
+            background-color: #cbd2d8;
+            background-image: linear-gradient(90deg, transparent 50%, rgba(255,255,255,.2) 50%);
+            background-size: 4px 100%;
+            font-family: -apple-system, Helvetica Neue, sans-serif;
             margin: 0;
-
-            padding: 20px;
-
+            padding: 0;
+            padding-top: 50px; /* Space for top header */
+            padding-bottom: 60px; /* Space for bottom tabs */
         }
 
-        .header {
-
-            text-align: center;
-
-            padding: 20px;
-
-            background-color: #1c1c1e;
-
-            color: #ff3b30;
-
-            border-radius: 12px;
-
+        /* Glossy Top Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 45px;
+            background: linear-gradient(#b0bfc9, #6d84a2 50%, #516a8c 50%, #597497);
+            border-bottom: 1px solid #2d3e52;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
         }
 
-        .package-list {
-
-            margin-top: 20px;
-
-        }
-
-        .package-card {
-
-            background-color: white;
-
-            padding: 15px;
-
-            margin-bottom: 10px;
-
-            border-radius: 10px;
-
-        }
-
-        .install-btn {
-
-            background-color: #ff3b30;
-
-            color: white;
-
-            border: none;
-
-            padding: 8px 15px;
-
-            border-radius: 15px;
-
-            float: right;
-
+        .nav-title {
+            color: #fff;
+            font-size: 20px;
             font-weight: bold;
-
+            text-shadow: 0 -1px 0 rgba(0,0,0,0.6);
         }
 
+        /* Content Container */
+        .container {
+            padding: 15px;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* Section Banner/Subtitle Text */
+        .section-header {
+            color: #4c566c;
+            font-size: 14px;
+            font-weight: bold;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+            margin: 10px 0 5px 10px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* Classic Rounded List Group */
+        .list-group {
+            background: #fff;
+            border: 1px solid #ababab;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* Individual List Rows */
+        .list-item {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            background: #fff;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Row Left Content (Icon + Text) */
+        .item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .item-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: #e5e5ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        /* Classic Disclosure Arrow (>) */
+        .arrow-chevron {
+            border-style: solid;
+            border-width: 2.5px 2.5px 0 0;
+            border-color: #7a7a7a;
+            display: inline-block;
+            height: 8px;
+            transform: rotate(45deg);
+            width: 8px;
+        }
+
+        /* Bottom Tab Bar */
+        .tab-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 55px;
+            background: linear-gradient(#4c4c4c, #111111);
+            border-top: 1px solid #000;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .tab-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #999;
+            font-size: 11px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .tab-item.active {
+            color: #fff;
+        }
+
+        .tab-icon {
+            font-size: 20px;
+            margin-bottom: 2px;
+        }
     </style>
-
 </head>
-
 <body>
 
+    <div class="nav-bar">
+        <span class="nav-title">Home</span>
+    </div>
 
+    <div class="container">
+       
+        <div class="section-header">Welcome to Spurfia</div>
 
-    <div class="header">
+        <ul class="list-group">
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-icon">⭐</div>
+                    <span>Featured</span>
+                </div>
+                <div class="arrow-chevron"></div>
+            </li>
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-icon">🎨</div>
+                    <span>Themes</span>
+                </div>
+                <div class="arrow-chevron"></div>
+            </li>
+        </ul>
 
-        <h1>Spurfia</h1>
-
-        <p>Welcome to your custom package manager</p>
+        <div class="section-header">Manage Layouts</div>
+        <ul class="list-group">
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-icon">📦</div>
+                    <span>Spurfia Store Products</span>
+                </div>
+                <div class="arrow-chevron"></div>
+            </li>
+            <li class="list-item">
+                <div class="item-left">
+                    <div class="item-icon">👤</div>
+                    <span>Manage Account</span>
+                </div>
+                <div class="arrow-chevron"></div>
+            </li>
+        </ul>
 
     </div>
 
-
-
-    <div class="package-list">
-
-        <div class="package-card">
-
-            <button class="install-btn">GET</button>
-
-
-            <h3>Spurfia Theme Pro</h3>
-
-            <p>Change your app layouts to match Spurfia colors.</p>
-
-        </div>
-
-        
-
-        <div class="package-card">
-
-            <button class="install-btn">GET</button>
-
-            <h3>Custom Dock</h3>
-
-            <p>Make your iPhone dock completely transparent.</p>
-
-        </div>
-
+    <div class="tab-bar">
+        <a href="#" class="tab-item active">
+            <div class="tab-icon">🏠</div>
+            <div>Cydia</div>
+        </a>
+        <a href="#" class="tab-item">
+            <div class="tab-icon">🗂️</div>
+            <div>Sections</div>
+        </a>
+        <a href="#" class="tab-item">
+            <div class="tab-icon">🔄</div>
+            <div>Changes</div>
+        </a>
+        <a href="#" class="tab-item">
+            <div class="tab-icon">🔍</div>
+            <div>Search</div>
+        </a>
     </div>
-
-
 
 </body>
-
 </html>
